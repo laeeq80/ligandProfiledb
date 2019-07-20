@@ -5,7 +5,7 @@ FROM mariadb:latest as builder
 RUN ["sed", "-i", "s/exec \"$@\"/echo \"not running $@\"/", "/usr/local/bin/docker-entrypoint.sh"]
 
 # needed for intialization
-ENV MYSQL_ROOT_PASSWORD=2264421_root
+ENV MYSQL_ROOT_PASSWORD=mariadb_root
 ENV MYSQL_DATABASE=db_profile
 
 COPY db_profile.sql /docker-entrypoint-initdb.d/
